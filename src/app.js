@@ -11,10 +11,19 @@ $(document).ready(function() {
   };
 
   $("#weather_api").show(function() {
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Havana,cuba&units=metric",function(result){
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London,UK&units=metric",function(result){
         weather_api.innerHTML = result.weather[0].description+": "+result.main.temp+"&#8451";
     });
   });
+
+  // $.ajax({
+  //   dataType: "json",
+  //   url: "http://api.openweathermap.org/data/2.5/weather",
+  //   data: "q=London,UK&units=metric",
+  //   success: function(result) {
+  //     weather_api.innerHTML = result.weather[0].description + ": " + result.main.temp + "&#8451";
+  //   }
+  // });
 
   $("#temperature").show(function() {
     updateTemp();
