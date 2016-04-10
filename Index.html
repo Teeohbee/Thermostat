@@ -3,6 +3,7 @@
 
 <head>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.3.4/jasmine_favicon.png">
   <link rel="stylesheet" type="text/css" href="public/mystyle.css">
   <script src="src/jquery.js"></script>
   <title>Thermostat</title>
@@ -12,7 +13,10 @@
   <center>
     <h1>
       <span id="temperature"></span>&#8451</h1>
-      <p id="weather_api">Weather Unavailable</p>
+      <input type="text" id="city">
+      <br>
+      <input type="button" id="city_submit" value="submit"></input>
+    <p id="weather_api">Please specify a city</p>
     <section class="border">
       <button type="button" class="button" id="up">&#8710</button>
       <button type="button" class="button" id="down">&#8711</button>
@@ -29,6 +33,7 @@
     </section>
 
   </center>
+
 </body>
 <script src="src/Thermostat.js"></script>
 <script src="src/app.js"></script>

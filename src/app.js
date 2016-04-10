@@ -4,15 +4,17 @@ $(document).ready(function() {
 
   var updateTemp = function() {
     $("#temperature").show(function() {
-      temperature.innerHTML = thermostat.temperature;
+      var temp_loc = $("#temperature")
+      temp_loc.html(thermostat.temperature);
       thermostat.setColour();
       temperature.style.color = thermostat.colour;
     });
   };
 
-  $("#weather_api").show(function() {
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London,UK&units=metric",function(result){
-        weather_api.innerHTML = result.weather[0].description+": "+result.main.temp+"&#8451";
+  $("#city_submit").click(function() {
+    var city = $("#city").val();
+    $.getJSON(("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric"),function(result){
+        $("#weather_api").html(result.weather[0].description+": "+result.main.temp+"&#8451");
     });
   });
 
@@ -51,54 +53,5 @@ $(document).ready(function() {
       thermostat.powerSaverOn();
     }
   });
-  //
-  // $("#up").mouseenter(function() {
-  //   $(this).animate({
-  //     height: "+=20px"
-  //   });
-  // });
-  //
-  // $("#up").mouseleave(function() {
-  //   $(this).animate({
-  //     height: "-=20px"
-  //   });
-  // });
-  //
-  // $("#down").mouseenter(function() {
-  //   $(this).animate({
-  //     height: "+=20px"
-  //   });
-  // });
-  //
-  // $("#down").mouseleave(function() {
-  //   $(this).animate({
-  //     height: "-=20px"
-  //   });
-  // });
-  //
-  //
-  // $("#up").mouseenter(function() {
-  //   $(this).animate({
-  //     width: "+=20px"
-  //   });
-  // });
-  //
-  // $("#up").mouseleave(function() {
-  //   $(this).animate({
-  //     width: "-=20px"
-  //   });
-  // });
-  //
-  // $("#down").mouseenter(function() {
-  //   $(this).animate({
-  //     width: "+=20px"
-  //   });
-  // });
-  //
-  // $("#down").mouseleave(function() {
-  //   $(this).animate({
-  //     width: "-=20px"
-  //   });
-  // });
 
 });
